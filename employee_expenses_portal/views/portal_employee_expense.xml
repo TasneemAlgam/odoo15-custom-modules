@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="portal_my_home_menu_employee_expense"
+              name="Portal layout : My expense's"
+              inherit_id="portal.portal_breadcrumbs" priority="25">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'employee_expense'"
+                t-attf-class="breadcrumb-item #{'active ' if not employee_expense else ''}">
+                <a t-if="employee_my_expense"
+                   t-attf-href="/my/employee_expenses?{{ keep_query() }}">Expense's
+                </a>
+                <t t-else="">
+                    <a href="/my/employee_expenses">Expense's</a>
+                </t>
+            </li>
+            <li t-if="employee_expense" class="breadcrumb-item active">
+                <t t-esc="employee_expense.name"/>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_employee_expense" name="Show Employee expense's"
+              customize_show="True" inherit_id="portal.portal_my_home"
+              priority="25">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Expense's</t>
+                <t t-set="url" t-value="'/my/employee_expenses'"/>
+                <t t-set="placeholder_count" t-value="'my_expense_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_expense" name="Portal: My Expenses">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar"/>
+                            <!-- <div id="dynamic-content"></div> -->
+            <t t-call="employee_expenses_portal.expenses_dashboard_template"/>
+        </t>
+    </template>
+    
+</odoo>

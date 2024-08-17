@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="expenses_dashboard_template">
+        <t t-name="ExpensesDashboard">
+            <div class="Dashbordcontainer">
+                <div id="expenses-dashboard">
+                    <!-- Owl component will be mounted here -->
+                </div>  
+        </t>
+    </template>
+</odoo>

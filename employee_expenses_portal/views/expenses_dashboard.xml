@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="expenses_dashboard_template" name="Expenses Dashboard">
+        <t t-name="ExpensesDashboard" owl="1">
+            <!-- <div class="container"> -->
+            <div class="DashbordContainer">
+                <aside class="sidebar">
+                    <div class="profile">
+                        <img t-attf-src="data:image/jpg;base64,{{env.user.image_1920}}" alt="Employee Image"/>
+                        <br/>
+                        <div>
+                            <h3 t-esc="env.user.name"/>
+                            <p t-esc="env.user.work_email"></p>
+                        </div>
+                    </div>
+                    <nav class="nav">
+                        <t t-esc="props" />
+                        <t t-foreach="props" t-as="doc">
+                          <ul>
+                            <li t-esc="doc">.</li>
+                          </ul>
+                        </t>
+                        <ul>
+                            <li>Dashboard</li>
+                            <li class="active">Expenses</li>
+                            <li>Wallets</li>
+                            <li>Summary</li>
+                            <li>Accounts</li>
+                            <li>Settings</li>
+                        </ul>
+                    </nav>
+                </aside>
+                <main class="content">
+                    <t t-if="not expenses" >
+                <div class="alert alert-warning mt8" role="alert">
+                    <p class="mb-0">You don't have expenses yet.</p>
+                </div>
+            </t>
+            <t t-else="">
+                    <section class="expenses">
+                        <header>
+                            <h1>Expenses</h1>
+                            <p><t t-esc="datetime.datetime.now().strftime('%d %B, %Y')"/></p>
+                        </header>
+                        <div class="bar-chart">
+                            <t t-foreach="chart_data" t-as="bar">
+                                <div class="chart-bar-container">
+                                    <div class="chart-bar" 
+                                        t-att-class="'today-bar' if bar['date'] == datetime.datetime.now().strftime('%Y-%m-%d') else 'chart-bar'"
+                                        t-att-style="'height: ' + str(bar['height']) + '%;'"></div>
+                                    <!-- <div class="chart-bar-label"><t t-esc="bar['label']"/></div> -->
+                                </div>
+                            </t>
+                        </div>
+                        <div class="expense-list">
+                            <h2>Today</h2>
+                            <t t-foreach="today_expenses" t-as="expense">
+                            <ul>
+                                <li>
+                                    <img class="icon" t-attf-src="data:image/jpg;base64,{{expense.product_id.image_1920}}" alt="Samantha"/>
+                                    <div class="li-product">
+                                        <h6 t-esc="expense.product_id.name"/>
+                                        <small t-esc="expense.date"></small>
+                                    </div>
+                                    <span class="amount" t-esc="expense.total_amount * -1"></span>
+                                </li>
+                            </ul>
+                        </t>
+                        </div>
+                        <div class="expense-list">
+                            <h2>Older</h2>
+                            <t t-foreach="older_expenses" t-as="expense">
+
+                            <ul>
+                                <li >
+                                    <img class="icon" t-attf-src="data:image/jpg;base64,{{expense.product_id.image_1920}}" alt="Samantha"/>
+                                    <div class="li-product">
+                                        <h6 t-esc="expense.product_id.name"/>
+                                        <small t-esc="expense.date"></small>
+                                    </div>
+                                    <span class="amount" t-esc="expense.total_amount * -1"></span>
+                                </li>
+                            </ul>
+                        </t>
+                        </div>
+                    </section>
+                    <aside class="summary">
+                        <h5 style="margin-top:40px;">Where your money go?</h5>
+                        <div class="chart">
+                            <t t-foreach="progress_bar_data" t-as="bar">
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-left"><t t-esc="bar['label']"/></div>
+                                    <div class="progress-bar-right"><t t-esc="bar['total_amount']"/></div>
+                                </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar" t-att-style="'width: ' + str(bar['height']) + '%;'"></div>
+                                    </div>
+                            </t>
+                        </div>
+                        <!-- <div class="tip-box">
+                            
+                            <button>View Tips</button>
+                        </div> -->
+                    </aside>
+                </t>
+                </main>
+            </div>
+        </t>
+    </template>
+</odoo>

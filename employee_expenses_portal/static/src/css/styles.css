@@ -1,0 +1,291 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f6fa;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+font-weight: bold;    
+}
+
+h6{
+margin: 0;    
+}
+
+h3{
+font-size:20px;   
+}
+
+p{
+color: #b3b0b0;    
+}
+.DashbordContainer {
+    display: flex;
+/*    height: 80vh;*/
+    background-color: #1e1e2f;
+
+}
+
+.sidebar {
+    background-color: #1e1e2f;
+    color: #fff;
+    padding: 40px;
+    width: 250px;
+}
+
+.profile {
+/*    display: flex;*/
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.profile img {
+    border-radius: 10%;
+    width: 75px;
+    height: 75px;
+    margin-right: 15px;
+    margin-bottom: 20px;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav li {
+    padding: 10px 0;
+    font-size: 18px;
+    color: #b3b0b0;
+
+}
+
+.nav li.active {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.content {
+    display: flex;
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    justify-content: space-between;
+    flex: 1;
+    padding: 20px;
+    margin: 15px;
+}
+
+.expenses {
+    flex: 3;
+    margin-right: 20px;
+    padding: 25px;
+}
+
+.expenses header {
+/*    display: flex;*/
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Basic styles for the chart container */
+.chart {
+/*    display: flex;*/
+/*    flex-direction: column;*/
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+.bar-chart {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end; 
+    width: 100%;
+    max-width: 400px;
+    height: 150px;
+/*    margin: auto;*/
+    padding: 20px;
+    position: relative;
+}
+
+/* Style for individual bars */
+.chart-bar {
+    width: 100%;
+    margin: 5px; /* Space between bars */
+    background-color: #d2deff; 
+/*    border: 1px solid rgba(75, 192, 192, 1);*/
+/*    border-radius: 4px; /* Rounded corners */*/
+}
+.today-bar {
+    width: 100%;
+    margin: 5px; /* Space between bars */
+    background-color: #5b2dff; 
+/*    border: 1px solid rgba(75, 192, 192, 1); */
+/*    border-radius: 4px; /* Rounded corners */*/
+}
+
+/* Optionally add labels or value indicators */
+.chart-bar-label {
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 5px; /* Space between label and bar */
+}
+
+.chart-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    align-items: end;
+    height: 100%;
+    width: 50px;
+}
+.progress-bar-container {
+    display: flex;
+    width: 100%;
+}
+.progress-bar-left {
+    text-align: left;
+    color: #333;
+    font-size: 14px;
+    margin-top: 10px; 
+    margin-bottom: 2px; /* Space between label and bar */
+}
+.progress-bar-right {
+    flex: 1;
+    text-align: right;
+    color: #333;
+    font-size: 14px;
+    margin-top: 10px; 
+    margin-bottom: 2px; /* Space between label and bar */
+}
+.progress-bar {
+    width: 100%; /* Full width of the container */
+    height: 5px;
+    margin: 0px 0; 
+    background-color: #b3b0b0; 
+/*    border: 1px solid rgba(75, 192, 192, 1); */
+    border-radius: 5px; /* Rounded corners */
+}
+.progress-bar div{
+    width: 100%; /* Full width of the container */
+    height: 5px;
+    margin: 0px 0; 
+    background-color: #63cc34; 
+/*    border: 1px solid rgba(75, 192, 192, 1); */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .chart {
+        padding: 10px;
+    }
+    .chart-bar {
+        margin: 3px 0;
+    }
+}
+
+
+.li-product {
+    flex: max-content;
+    
+}
+.expense-list h2 {
+    margin: 20px 0;
+    border-bottom: 2px solid #f1f3f6;
+    padding-bottom: 5px;
+    margin-bottom: 10px
+}
+
+.expense-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.expense-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color:#f1f3f6;
+    padding: 15px;
+}
+
+.grocery {
+    background-color: #29b6f6;
+}
+
+.transport {
+    background-color: #ab47bc;
+}
+
+.housing {
+    background-color: #ffa726;
+}
+
+.food {
+    background-color: #ef5350;
+}
+
+.entertainment {
+    background-color: #66bb6a;
+}
+
+.amount {
+    font-weight: bold;
+}
+
+.summary {
+    flex: 1.5;
+    background-color: #f1f3f6;;
+    padding: 20px;
+    margin: -20px;
+    border-radius: 30px;
+ /*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+}
+
+.summary h2 {
+    margin-bottom: 20px;
+}
+
+.summary ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.summary ul li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.tip-box {
+    background-color: #f1f3f6;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.tip-box p {
+    margin: 0 0 10px 0;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #1e1e2f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
