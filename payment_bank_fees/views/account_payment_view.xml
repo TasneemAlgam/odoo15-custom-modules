@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form view -->
+    <record id="view_account_payment_form" model="ir.ui.view">
+        <field name="name">account.payment.form</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet//group//div[@name='amount_div']" position="after">
+                    <field name="bank_fee"  attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                    <field name="include_fee_in_payment" widget="radio" options="{'horizontal': True}" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+            </xpath>
+        </field>
+    </record>       
+</odoo>
